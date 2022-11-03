@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('check java') {
             steps {
-                echo 'Building..'
+                sh 'java -version'
             }
         }
         stage('Test') {

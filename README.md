@@ -4,6 +4,7 @@ This application was generated using JHipster 7.9.3, you can find documentation 
 
 ## Project Structure
 ein neues projekt.
+es wird super.
 
 Node is required for generation and recommended for development. `package.json` is always generated for a better development experience with prettier, commit hooks, scripts and so on.
 

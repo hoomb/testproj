@@ -38,5 +38,17 @@ pipeline {
                 sh './mvnw -ntp jib:buildTar'
             }
         }
+
+        stage('run application') {
+            steps {
+                sh """
+                docker compose -f "${WORKSPACE}/target/classes/config/application-prod.yml" rm -sfv heizoelmanagement-app || true
+                docker rmi heizoel-management || true
+                docker load --input "${WORKSPACE}/target/jib-image.tar"
+                docker compose -f "${WORKSPACE}/target/classes/config/application-prod.yml" up -d
+                """
+            }
+         
+        }
     }
 }

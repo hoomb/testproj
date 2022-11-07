@@ -42,10 +42,10 @@ pipeline {
         stage('run application') {
             steps {
                 sh """
-                docker compose -f "${WORKSPACE}/target/classes/config/application-prod.yml" rm -sfv heizoelmanagement-app || true
-                docker rmi heizoel-management || true
+                sdocker compose -f "${WORKSPACE}/src/main/docker/app.yml" rm -sfv testapp-app || true
+                docker rmi testapp || true
                 docker load --input "${WORKSPACE}/target/jib-image.tar"
-                docker compose -f "${WORKSPACE}/target/classes/config/application-prod.yml" up -d
+                docker compose -f "${WORKSPACE}/src/main/docker/app.yml" up -d
                 """
             }
          

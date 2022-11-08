@@ -43,8 +43,8 @@ pipeline {
             steps {
                 sh """
                 docker-compose -f "${WORKSPACE}/src/main/docker/app.yml" rm -sfv testapp-app || true
-                docker-rmi testapp || true
-                docker-load --input "${WORKSPACE}/target/jib-image.tar"
+                docker rmi testproj || true
+                docker load --input "${WORKSPACE}/target/jib-image.tar"
                 docker-compose -f "${WORKSPACE}/src/main/docker/app.yml" up -d
                 """
             }

@@ -3,7 +3,7 @@ upstream apiserver {
 }
 
 server {
-    server_name myserver.mooo.com;
+    server_name sp-it.ddns.net;
 
     access_log /var/log/nginx/reverse-access.log;
     error_log /var/log/nginx/reverse-error.log;

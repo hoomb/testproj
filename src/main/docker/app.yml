@@ -32,4 +32,4 @@ services:
     ports:
       - 80:80
     volumes:
-      - ./nginx/testproj:/etc/nginx/sites-enabled/testproj
+      - ./nginx/testproj:/etc/nginx/conf.d/testproj.conf

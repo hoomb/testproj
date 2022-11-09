@@ -32,7 +32,7 @@ services:
     ports:
       - 80:80
     volumes:
-      - ~/projects/testproj/src/main/docker/nginx/testproj.conf:/etc/nginx/conf.d/testproj.conf:ro
+      - ~/projects/testproj/src/main/docker/nginx/:/etc/nginx/conf.d/
    # environment:
      # - NGINX_HOST=sp-it.ddns.net
       #- NGINX_PORT=80

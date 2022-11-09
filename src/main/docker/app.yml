@@ -33,3 +33,6 @@ services:
       - 80:80
     volumes:
       - ./nginx/:/etc/nginx/conf.d/
+    environment:
+      - NGINX_HOST=sp-it.ddns.net
+      - NGINX_PORT=80

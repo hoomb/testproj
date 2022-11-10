@@ -1,12 +1,27 @@
 pipeline {
     agent any
+    options {
+        // This is required if you want to clean before build
+        skipDefaultCheckout(true)
+    }
 
     stages {
+        stage('Build') {
+            steps {
+                // Clean before build
+                cleanWs()
+                // We need to explicitly checkout from SCM here
+                checkout scm
+                echo "Building ${env.JOB_NAME}..."
+            }
+        }
+        
         stage('check java') {
             steps {
                 sh 'java -version'
             }
         }
+        
         stage('clean') {
             steps {
                 sh 'chmod +x mvnw'
@@ -48,7 +63,17 @@ pipeline {
                 docker-compose -f "${WORKSPACE}/src/main/docker/app.yml" up -d
                 """
             }
-         
+        }
+    }
+    post {
+        // Clean after build
+        always {
+            cleanWs(cleanWhenNotBuilt: false,
+                    deleteDirs: true,
+                    disableDeferredWipeout: true,
+                    notFailBuild: true,
+                    patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
+                               [pattern: '.propsfile', type: 'EXCLUDE']])
         }
     }
 }

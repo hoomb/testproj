@@ -52,6 +52,12 @@ pipeline {
             }
         }
 
+        stage('build nginx') {
+            steps {
+                sh 'docker build -t mynginx .'
+            }
+        }
+
         stage('run application') {
             steps {
                 sh """

@@ -33,6 +33,6 @@ services:
       - 80:80
     volumes:
     - type: bind
-      source: ${PWD}/src/main/docker/nginx/default.conf
+      source: ${PWD}/src/main/docker/nginx/
       target: /etc/nginx/conf.d/
   

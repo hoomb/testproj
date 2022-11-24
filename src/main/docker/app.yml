@@ -28,9 +28,9 @@ services:
       - 127.0.0.1:5432:5432
 
   testproj-nginx:
-    image: nginx:latest
+    image: mynginx:latest
     ports:
       - 80:80
     volumes:
-      - ./nginx/:/etc/nginx/conf.d/
+     # - ./nginx/:/etc/nginx/conf.d/
   

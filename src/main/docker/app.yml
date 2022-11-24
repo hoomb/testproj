@@ -33,6 +33,6 @@ services:
       - 80:80
     volumes:
     - type: bind
-      source: /src/main/docker/nginx/default.conf
+      source: /var/jenkins_home/workspace/project-heizoel/src/main/docker/nginx/default.conf
       target: /etc/nginx/conf.d/default.conf
   

@@ -29,7 +29,7 @@ services:
 
   testproj-nginx:
     build: mynginx
-      context: "."
+      context: ./docker/dockerfile
     ports:
       - 80:80
    

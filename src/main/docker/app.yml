@@ -33,7 +33,6 @@ services:
       - 80:80
     volumes:
     - type: bind
-      source: ./nginx/default.conf
-      target: /etc/nginx/conf.d/default.conf
-     # - ./nginx/:/etc/nginx/conf.d/
+      source: ./nginx/
+      target: /etc/nginx/conf.d/
   

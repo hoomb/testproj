@@ -31,6 +31,5 @@ services:
     image: mynginx
     ports:
       - 80:80
-    volumes:
-     - ./nginx/:/etc/nginx/conf.d/
+   
   

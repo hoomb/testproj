@@ -29,7 +29,7 @@ services:
 
   testproj-nginx:
     build:
-      dockerfile: "src/main/docker/dockerfile"
+      dockerfile: "./dockerfile"
     ports:
       - 80:80
    

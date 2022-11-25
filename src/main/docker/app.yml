@@ -28,8 +28,8 @@ services:
       - 127.0.0.1:5432:5432
 
   testproj-nginx:
-    build: &mynginx
-      dockerfile: ./dockerfile
+    build:
+      dockerfile: "."
     ports:
       - 80:80
    

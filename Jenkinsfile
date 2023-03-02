@@ -55,10 +55,10 @@ pipeline {
         stage('run application') {
             steps {
                 sh """
-                docker-compose -f "${WORKSPACE}/src/main/docker/app.yml" rm -sfv testproj-app testproj-nginx || true
+                docker compose -f "${WORKSPACE}/src/main/docker/app.yml" rm -sfv testproj-app testproj-nginx || true
                 docker rmi testproj || true
                 docker load --input "${WORKSPACE}/target/jib-image.tar"
-                docker-compose -f "${WORKSPACE}/src/main/docker/app.yml" up -d
+                docker compose -f "${WORKSPACE}/src/main/docker/app.yml" up -d
                 """
             }
         }

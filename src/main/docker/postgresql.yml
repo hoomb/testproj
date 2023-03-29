@@ -6,9 +6,9 @@ services:
     # volumes:
     #   - ~/volumes/jhipster/testapp/postgresql/:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=testapp
-      - POSTGRES_PASSWORD=
-      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_DB=testprojdb
+      - POSTGRES_USER=testproj_dbuser
+      - POSTGRES_PASSWORD=q!NDTcV7dyIS!W@+
     # If you want to expose these ports outside your dev PC,
     # remove the "127.0.0.1:" prefix
     ports:

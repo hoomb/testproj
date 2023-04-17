@@ -28,10 +28,10 @@ scrape_configs:
     static_configs:
       - targets:
           # On MacOS, replace localhost by host.docker.internal
-          - host.docker.internal:8080
+          - testproj-app:8080
 
   - job_name: 'postgres_exporter'
     scrape_interval: 5s
     static_configs:
       - targets:
-          - host.docker.internal:9187
+          - postgres-exporter:9187

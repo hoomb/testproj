@@ -60,16 +60,16 @@ pipeline {
                 docker load --input "${WORKSPACE}/target/jib-image.tar"
                 docker-compose -f "${WORKSPACE}/src/main/docker/app.yml" up -d
                 """
-             }
-	}
-
+            }
+        }
         stage('run monitoring') {
             steps {
-	        sh """
-		docker-compose -f "${WORKSPACE}/src/main/docker/monitoring.yml" down
-		docker-compose -f "${WORKSPACE]/src/main/docker/monitoring.yml" up -d
-		"""
-		}
+                sh """
+                docker-compose -f "${WORKSPACE}/src/main/docker/monitoring.yml" down
+                docker-compose -f "${WORKSPACE}/src/main/docker/monitoring.yml" up -d
+                """
+            }
         }
     }
 }
+ 

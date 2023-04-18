@@ -55,8 +55,8 @@ pipeline {
         stage('run application') {
             steps {
                 sh """
-                docker-compose -f "${WORKSPACE}/src/main/docker/app.yml" rm -sfv testproj-app testproj-nginx || true
-                docker rmi testproj || true
+                docker-compose -f "${WORKSPACE}/src/main/docker/app.yml" rm -sfv testproj-app1 testproj-app2 testproj-nginx || true
+                docker rmi testproj -f || true
                 docker load --input "${WORKSPACE}/target/jib-image.tar"
                 docker-compose -f "${WORKSPACE}/src/main/docker/app.yml" up -d
                 """
@@ -65,7 +65,7 @@ pipeline {
         stage('run monitoring') {
             steps {
                 sh """
-                docker-compose -f "${WORKSPACE}/src/main/docker/monitoring.yml" down
+                docker-compose -f "${WORKSPACE}/src/main/docker/monitoring.yml" rm -sfv testproj-prometheus testproj-grafana || true
                 docker-compose -f "${WORKSPACE}/src/main/docker/monitoring.yml" up -d
                 """
             }

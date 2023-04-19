@@ -67,7 +67,6 @@ pipeline {
                 sh """
                 docker-compose -f "${WORKSPACE}/src/main/docker/monitoring.yml" rm -sfv testproj-prometheus testproj-grafana || true
                 docker-compose -f "${WORKSPACE}/src/main/docker/monitoring.yml" up -d
-                docker-compose -f "${WORKSPACE}/src/main/docker/prometheus/prometheus.yml" up -d
                 """
             }
         }
